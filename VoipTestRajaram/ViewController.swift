@@ -36,14 +36,14 @@ class ViewController: UIViewController , CXProviderDelegate, PKPushRegistryDeleg
     
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
         let config = CXProviderConfiguration(localizedName: "My App")
-        config.iconTemplateImageData = UIImage(named: "pizza")!.pngData()
+        config.iconTemplateImageData = UIImage(named: "raja")!.pngData()
         config.ringtoneSound = "ringtone.caf"
-        config.includesCallsInRecents = false;
+        config.includesCallsInRecents = true;
         config.supportsVideo = true;
         let provider = CXProvider(configuration: config)
         provider.setDelegate(self, queue: nil)
         let update = CXCallUpdate()
-        update.remoteHandle = CXHandle(type: .generic, value: "Pete Za")
+        update.remoteHandle = CXHandle(type: .generic, value: "My wife")
         update.hasVideo = true
         provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
     }
